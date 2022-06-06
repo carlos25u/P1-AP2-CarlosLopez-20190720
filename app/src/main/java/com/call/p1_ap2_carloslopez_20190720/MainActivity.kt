@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.call.p1_ap2_carloslopez_20190720.ui.theme.P1AP2CarlosLopez20190720Theme
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
