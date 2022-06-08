@@ -11,10 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.call.p1_ap2_carloslopez_20190720.view.ClienteViewModel
+import com.call.p1_ap2_carloslopez_20190720.view.PrestamoViewModel
 
 @Composable
-fun registroScreen(backToListado:() -> Unit, viewModel: ClienteViewModel = hiltViewModel()){
+fun PrestamoRegistroScreen(backToListado:() -> Unit, viewModel: PrestamoViewModel = hiltViewModel()){
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(text = "Registro") })

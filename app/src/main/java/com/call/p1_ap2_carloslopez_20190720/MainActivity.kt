@@ -14,8 +14,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.call.p1_ap2_carloslopez_20190720.ui.theme.P1AP2CarlosLopez20190720Theme
-import com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes.listaScreen
-import com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes.registroScreen
+import com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes.PrestamoListaScreen
+import com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes.PrestamoRegistroScreen
 import com.call.p1_ap2_carloslopez_20190720.util.Screen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,14 +39,14 @@ fun myApp() {
         ) {
             val navHostController = rememberNavController()
             NavHost(navController = navHostController,
-                startDestination = Screen.ListadoScreen.route){
+                startDestination = Screen.prestamoListadoScreen.route){
 
-                composable(route = Screen.ListadoScreen.route){
-                    listaScreen(goToRegistro = {navHostController.navigate(Screen.RegistroScreen.route)})
+                composable(route = Screen.prestamoListadoScreen.route){
+                    PrestamoListaScreen(goToRegistro = {navHostController.navigate(Screen.prestamoRegistroScreen.route)})
                 }
 
-                composable(route = Screen.RegistroScreen.route){
-                    registroScreen(backToListado = {navHostController.navigate(Screen.ListadoScreen.route)})
+                composable(route = Screen.prestamoRegistroScreen.route){
+                    PrestamoRegistroScreen(backToListado = {navHostController.navigate(Screen.prestamoListadoScreen.route)})
                 }
             }
         }

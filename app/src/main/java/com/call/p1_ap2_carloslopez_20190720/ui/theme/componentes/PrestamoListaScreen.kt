@@ -12,10 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.call.p1_ap2_carloslopez_20190720.view.ClienteViewModel
+import com.call.p1_ap2_carloslopez_20190720.view.PrestamoViewModel
 
 @Composable
-fun listaScreen(goToRegistro:() -> Unit, viewModel: ClienteViewModel = hiltViewModel()){
+fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = hiltViewModel()){
     val ScaffoldState = rememberScaffoldState()
 
     Scaffold(
