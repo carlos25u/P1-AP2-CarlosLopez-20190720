@@ -5,7 +5,7 @@ import com.call.p1_ap2_carloslopez_20190720.model.Prestamo
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ClienteDao {
+interface PrestamoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertar(prestamo: Prestamo)
 
