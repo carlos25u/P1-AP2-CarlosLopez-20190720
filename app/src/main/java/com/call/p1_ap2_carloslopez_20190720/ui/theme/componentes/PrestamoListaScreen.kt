@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -20,7 +22,7 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
 
     Scaffold(
         topBar ={
-            TopAppBar(title = { Text(text = "Listado") })
+            TopAppBar(title = { Text(text = "Listado de Prestamo") })
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -35,5 +37,20 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
         scaffoldState = ScaffoldState
     ){it
 
+        val listaPrestamo = viewModel.prestamos.collectAsState(initial = emptyList())
+
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth()
+        ){
+            items(listaPrestamo.value){ prestamos ->
+                Row() {
+                    Text(text = "${prestamos.prestamoId}\t\t\t" +
+                            "${prestamos.deudor}\t\t\t"+
+                            "${prestamos.concepto}"+
+                            "${prestamos.monto}"
+                    )
+                }
+            }
+        }
     }
 }
