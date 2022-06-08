@@ -46,7 +46,7 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
                 Row() {
                     Text(text = "${prestamos.prestamoId}\t\t\t" +
                             "${prestamos.deudor}\t\t\t"+
-                            "${prestamos.concepto}"+
+                            "${prestamos.concepto}\t\t\t"+
                             "${prestamos.monto}"
                     )
                 }

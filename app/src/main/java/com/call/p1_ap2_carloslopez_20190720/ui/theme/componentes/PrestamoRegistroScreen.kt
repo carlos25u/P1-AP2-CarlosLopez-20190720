@@ -44,7 +44,8 @@ fun PrestamoRegistroScreen(backToListado:() -> Unit, viewModel: PrestamoViewMode
             )
 
             Button(onClick = {
-                             backToListado()
+                viewModel.Guardar()
+                backToListado()
             },
                 modifier = Modifier
                     .fillMaxWidth()
