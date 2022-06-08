@@ -2,15 +2,15 @@ package com.call.p1_ap2_carloslopez_20190720.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.call.p1_ap2_carloslopez_20190720.model.Cliente
+import com.call.p1_ap2_carloslopez_20190720.model.Prestamo
 
 @Database(
     entities = [
-        Cliente::class],
+        Prestamo::class],
 
     exportSchema = false,
     version = 1
 )
-abstract class ClienteDb : RoomDatabase() {
-    abstract val clienteDao: ClienteDao
+abstract class PrestamoDb : RoomDatabase() {
+    abstract val prestamoDao: PrestamoDao
 }
