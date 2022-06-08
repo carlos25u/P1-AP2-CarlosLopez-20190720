@@ -11,9 +11,11 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.call.p1_ap2_carloslopez_20190720.view.ClienteViewModel
 
 @Composable
-fun listaScreen(goToRegistro:() -> Unit){
+fun listaScreen(goToRegistro:() -> Unit, viewModel: ClienteViewModel = hiltViewModel()){
     val ScaffoldState = rememberScaffoldState()
 
     Scaffold(
