@@ -1,9 +1,6 @@
 package com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
@@ -44,11 +41,12 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
         ){
             items(listaPrestamo.value){ prestamos ->
                 Row() {
-                    Text(text = "${prestamos.prestamoId}\t\t\t" +
-                            "${prestamos.deudor}\t\t\t"+
-                            "${prestamos.concepto}\t\t\t"+
-                            "${prestamos.monto}"
+                    Text(text = "${prestamos.prestamoId}\n" +
+                            "${prestamos.deudor}\n"+
+                            "${prestamos.concepto}\t\t\n"
                     )
+
+                    Text(text = "$${prestamos.monto}")
                 }
             }
         }
