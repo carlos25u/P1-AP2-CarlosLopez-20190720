@@ -2,9 +2,9 @@ package com.call.p1_ap2_carloslopez_20190720.di
 
 import android.content.Context
 import androidx.room.Room
-import com.call.p1_ap2_carloslopez_20190720.data.ClienteDao
-import com.call.p1_ap2_carloslopez_20190720.data.ClienteDb
-import com.call.p1_ap2_carloslopez_20190720.data.repository.ClienteRepository
+import com.call.p1_ap2_carloslopez_20190720.data.PrestamoDao
+import com.call.p1_ap2_carloslopez_20190720.data.PrestamoDb
+import com.call.p1_ap2_carloslopez_20190720.data.repository.PrestamoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,23 +18,23 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesClientesDb(@ApplicationContext context: Context):ClienteDb{
+    fun providesClientesDb(@ApplicationContext context: Context):PrestamoDb{
         return  Room.databaseBuilder(
             context,
-            ClienteDb::class.java,
-            "ClienteDb")
+            PrestamoDb::class.java,
+            "PrestamoDb")
             .fallbackToDestructiveMigration()
             .build()
     }
 
     @Provides
-    fun providesClienteDao(clienteDb: ClienteDb): ClienteDao {
-        return clienteDb.clienteDao
+    fun providesPrestamoDao(prestamoDb: PrestamoDb): PrestamoDao {
+        return prestamoDb.prestamoDao
     }
 
 
     @Provides
-    fun providesClienteRepository(clienteDao: ClienteDao): ClienteRepository {
-        return  ClienteRepository(clienteDao)
+    fun providesPrestamoRepository(prestamoDao: PrestamoDao): PrestamoRepository {
+        return  PrestamoRepository(prestamoDao)
     }
 }
