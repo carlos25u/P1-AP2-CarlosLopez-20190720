@@ -1,5 +1,7 @@
 package com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
