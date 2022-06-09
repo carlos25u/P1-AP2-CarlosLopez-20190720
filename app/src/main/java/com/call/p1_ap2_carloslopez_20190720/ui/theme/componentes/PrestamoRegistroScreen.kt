@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.SaveAs
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.call.p1_ap2_carloslopez_20190720.view.PrestamoViewModel
@@ -18,6 +19,7 @@ import com.call.p1_ap2_carloslopez_20190720.view.PrestamoViewModel
 @Composable
 fun PrestamoRegistroScreen(backToListado:() -> Unit, viewModel: PrestamoViewModel = hiltViewModel()){
     val ScaffoldState = rememberScaffoldState()
+    val context = LocalContext.current
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(text = "Registro de Prestamos") })
@@ -25,8 +27,15 @@ fun PrestamoRegistroScreen(backToListado:() -> Unit, viewModel: PrestamoViewMode
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    viewModel.Guardar()
-                    backToListado()
+
+                    val montovalidar:Int = viewModel.monto.toInt()
+
+                    if(montovalidar > 0){
+                        viewModel.Guardar()
+                        backToListado()
+                    }else{
+                        Toast.makeText(context, "El Monto debe de ser mayor a 0", Toast.LENGTH_SHORT).show()
+                    }
                 },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
