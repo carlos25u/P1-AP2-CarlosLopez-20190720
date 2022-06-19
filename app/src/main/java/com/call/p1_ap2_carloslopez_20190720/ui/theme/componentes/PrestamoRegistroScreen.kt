@@ -7,8 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.SaveAs
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
@@ -77,21 +76,36 @@ fun PrestamoRegistroScreen(backToListado:() -> Unit, viewModel: PrestamoViewMode
                 value = viewModel.deudor,
                 onValueChange = {viewModel.deudor = it},
                 label = { Text(text = "Deudor")},
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = null)}
                 )
 
             OutlinedTextField(
                 value = viewModel.concepto,
                 onValueChange = {viewModel.concepto = it},
                 label = { Text(text = "Concepto")},
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Schema,
+                        contentDescription = null)
+                },
             )
 
             OutlinedTextField(
                 value = viewModel.monto,
                 onValueChange = {viewModel.monto = it},
                 label = { Text(text = "Monto")},
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Money,
+                        contentDescription = null)
+                }
             )
         }
     }
