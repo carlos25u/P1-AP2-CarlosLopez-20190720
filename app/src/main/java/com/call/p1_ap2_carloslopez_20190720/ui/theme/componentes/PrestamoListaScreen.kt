@@ -1,5 +1,6 @@
 package com.call.p1_ap2_carloslopez_20190720.ui.theme.componentes
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -11,6 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.call.p1_ap2_carloslopez_20190720.model.Prestamo
 import com.call.p1_ap2_carloslopez_20190720.view.PrestamoViewModel
 
 @Composable
@@ -37,16 +39,27 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
         val listaPrestamo = viewModel.prestamos.collectAsState(initial = emptyList())
 
         LazyColumn(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ){
             items(listaPrestamo.value){ prestamos ->
-                Row() {
-                    Text(text = "${prestamos.prestamoId}\n" +
-                            "${prestamos.deudor}\n"+
-                            "${prestamos.concepto}\t\t\n"
-                    )
+                Column(modifier = Modifier.fillMaxWidth())
+                {
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(30.dp)
+                        .padding(2.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween) {
+                        Text(text = "${prestamos.deudor}")
+                        
+                        Text(text = "$${prestamos.monto}",
+                            style = MaterialTheme.typography.h5)
+                    }
 
-                    Text(text = "$${prestamos.monto}")
+                    Row( modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Start){
+                        Text(text = "${prestamos.concepto}",
+                            style = MaterialTheme.typography.caption)
+                    }
                 }
             }
         }
