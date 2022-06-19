@@ -46,8 +46,7 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
                 {
                     Row(modifier = Modifier
                         .fillMaxWidth()
-                        .height(30.dp)
-                        .padding(2.dp),
+                        .height(30.dp).padding(vertical = 2.dp),
                         horizontalArrangement = Arrangement.SpaceBetween) {
                         Text(text = "${prestamos.deudor}")
                         
@@ -55,7 +54,7 @@ fun PrestamoListaScreen(goToRegistro:() -> Unit, viewModel: PrestamoViewModel = 
                             style = MaterialTheme.typography.h5)
                     }
 
-                    Row( modifier = Modifier.fillMaxWidth(),
+                    Row( modifier = Modifier.fillMaxWidth().padding(vertical = 1.dp),
                         horizontalArrangement = Arrangement.Start){
                         Text(text = "${prestamos.concepto}",
                             style = MaterialTheme.typography.caption)
